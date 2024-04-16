@@ -13,8 +13,8 @@ management:
         # 일반적으로 env endpoint enable/expose 시 주의해야 한다.
         # 학습 프로젝트인만큼 exposure 하겠다.
         # wildcard를 사용할 수 있으나, 사용을 지양한다.
-        include: health,info,env
-      base-path: /tps-coffee
+        include: health,info,env,metrics,mappings,prometheus
+      base-path: '/system'
     # 앞서 말했듯, JMX/Web은 expose default method의 설정이 다르다.
     # 따라서 JMX를 사용하지 않을 것이라면 JMX는 모조리 disable 하자.
     jmx:
@@ -32,6 +32,21 @@ management:
     env:
       enabled: true
       show-values: always
+    # 어플리케이션의 메트릭 정보 표시
+    metrics:
+      enabled: true
+    # Git 에 대한 정보를 다룬다.
+    # 추가적인 Git 설정이 필요하다.
+    info:
+      enabled: true
+    # RequestMapping의 모든 경로 표시
+    mappings:
+      enabled: true
+    # Prometheus 서버에서 스크랩할 수 있는 형식으로 변환.
+    # `micrometer-registry-prometheus`의 dependency가 필요.
+    prometheus:
+      enabled: true
+
   server:
     port: 9090
 
