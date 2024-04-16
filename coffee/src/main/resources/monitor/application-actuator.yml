@@ -1,7 +1,3 @@
-spring:
-  application:
-    name: coffee
-
 management:
   endpoints:
     # 기본적으로는 shut-down 제외 모두 enabled
@@ -38,9 +34,6 @@ management:
       show-values: always
   server:
     port: 9090
-
-server:
-  port: 8080
 
 # Actuator는 서버에 대한 다양한 정보를 다룬다. 보안에 주의를 더 기울여야 한다.
 # 1. management port와 service port를 분리하자.
