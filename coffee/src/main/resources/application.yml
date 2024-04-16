@@ -1,0 +1,14 @@
+spring:
+  config:
+    import:
+      - classpath:/monitor/application-actuator.yml
+      - classpath:/monitor/application-prometheus.yml
+  application:
+    name: coffee
+server:
+  port: 8080
+
+# Actuator는 서버에 대한 다양한 정보를 다룬다. 보안에 주의를 더 기울여야 한다.
+# 1. management port와 service port를 분리하자.
+# 2. Actuator 접근 시, Security 등을 활용하여 인증과 권한 여부를 검사하자.
+# 3. Actuator Default 경로를 사용하지 않고, base-path를 변경하여 운영한다.
